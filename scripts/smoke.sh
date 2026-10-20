@@ -16,7 +16,11 @@ check() { # name expected actual
 req() { # method path token data  -> sets BODY CODE
   local m=$1 p=$2 t=$3 d=$4 extra=()
   [ -n "$t" ] && extra=(-H "Authorization: Bearer $t")
-  [ -n "$d" ] && extra+=(-H 'Content-Type: application/json' -d "$d")
+  if [ -n "$d" ]; then
+    # 经文件传递 body，避免 Windows 下 curl 把中文参数按 GBK 编码
+    printf '%s' "$d" > /tmp/nimbus_req_body.json
+    extra+=(-H 'Content-Type: application/json' --data-binary @/tmp/nimbus_req_body.json)
+  fi
   local out
   out=$(curl -s -b $JAR -c $JAR -w "\n%{http_code}" -X "$m" "$API$p" "${extra[@]}")
   CODE=$(printf '%s' "$out" | tail -1)
