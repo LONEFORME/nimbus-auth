@@ -4,6 +4,8 @@
 [![Express](https://img.shields.io/badge/Express-4-000000?logo=express&logoColor=white)](https://expressjs.com)
 [![Prisma](https://img.shields.io/badge/Prisma-6-2D3748?logo=prisma&logoColor=white)](https://www.prisma.io)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![CI](https://github.com/LONEFORME/nimbus-auth/actions/workflows/ci.yml/badge.svg)](https://github.com/LONEFORME/nimbus-auth/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 前端 + 后端 + 数据库一体，认证链路完整可跑：注册、登录、令牌轮换、登出、改密、RBAC、受保护资源 CRUD。
 
