@@ -9,6 +9,8 @@
 
 前端 + 后端 + 数据库一体，认证链路完整可跑：注册、登录、令牌轮换、登出、改密、RBAC、受保护资源 CRUD。
 
+> **AI 生成说明**：本项目的代码与文档均由 AI 自动生成，非人工编写。作者负责提出需求、运行验证与验收发布。
+
 ![Nimbus 登录页](docs/login.png)
 
 ## 技术栈
@@ -132,6 +134,7 @@ PRISMA_ENGINES_MIRROR=https://registry.npmmirror.com/-/binary/prisma npx prisma 
 
 ## 已知限制
 
+- 本项目由 AI 自动生成，虽已通过本地冒烟测试与 GitHub Actions CI，用于生产前仍建议做独立的安全审计。
 - 无邮箱验证与找回密码（需要接邮件服务）。
 - 无限流之外的防刷（如验证码、设备指纹）。
 - access token 无吊销名单，登出后仍会在剩余有效期（≤15 分钟）内有效 —— 这是无状态 JWT 的固有取舍。
