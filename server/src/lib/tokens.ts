@@ -25,6 +25,8 @@ export function signAccessToken(user: TokenUser): string {
   };
   return jwt.sign(payload, config.jwt.accessSecret, {
     expiresIn: config.jwt.accessTtlMinutes * 60,
+    // 同一秒内多次签发也不产生相同 token，便于审计与重放排查
+    jwtid: crypto.randomUUID(),
   });
 }
 
